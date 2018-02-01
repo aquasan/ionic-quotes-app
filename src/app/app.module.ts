@@ -1,3 +1,8 @@
+import { BlankPage } from './../pages/blank/blank';
+import { FavouriteService } from './../services/favourite.service';
+import { TabsPage } from './../pages/tabs/tabs';
+import { LibraryPage } from './../pages/library/library';
+import { QuotesPage } from './../pages/quotes/quotes';
 import { SettingsPage } from './../pages/settings/settings';
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
@@ -14,7 +19,11 @@ import { FavouritesPage } from '../pages/favourites/favourites';
     MyApp,
     QuotePage,
     FavouritesPage,
-    SettingsPage
+    SettingsPage,
+    QuotesPage,
+    LibraryPage,
+    TabsPage,
+    BlankPage
   ],
   imports: [
     BrowserModule,
@@ -25,11 +34,16 @@ import { FavouritesPage } from '../pages/favourites/favourites';
     MyApp,
     QuotePage,
     FavouritesPage,
-    SettingsPage
+    SettingsPage,
+    QuotesPage,
+    LibraryPage,
+    TabsPage,
+    BlankPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
+    FavouriteService,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

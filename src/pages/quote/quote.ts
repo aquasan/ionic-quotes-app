@@ -1,12 +1,8 @@
+import { FavouriteService } from './../../services/favourite.service';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
-/**
- * Generated class for the QuotePage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+
 
 @IonicPage()
 @Component({
@@ -15,11 +11,25 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class QuotePage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  quotes :any[] = [];
+  constructor(public navCtrl: NavController,
+     public navParams: NavParams,
+    private favouriteService: FavouriteService) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad QuotePage');
+    this.quotes = this.navParams.get('quotes');
+  }
+
+  favoriteQuote(quote){
+    this.favouriteService.addQuote(quote);
+  }
+  unfavoriteQuote(quote){
+    this.favouriteService.removeQuote(quote);
+  }
+
+  isQuoteFavorite(quote){
+    return this.favouriteService.isQuoteFavorite(quote);
   }
 
 }

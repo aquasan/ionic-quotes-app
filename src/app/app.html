@@ -1,1 +1,13 @@
-<ion-nav [root]="rootPage"></ion-nav>
+<ion-menu [content]="content">
+    <ion-content>
+        <ion-list>
+            <button ion-item (click)="goToLibrary()">
+                Home
+            </button>
+            <button ion-item (click)="goToBlankPage()">
+                Blank Page
+            </button>
+        </ion-list>
+    </ion-content>
+</ion-menu>
+<ion-nav #content [root]="tabsPage"></ion-nav>
